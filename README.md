@@ -7,7 +7,7 @@ Notitia Civica is a public-interest publication that turns public signals into n
 It publishes civic intelligence briefs, geopolitical analysis, narrative-operations reporting, story leads, signal maps, and research notes derived from public records, reporting, official statements, filings, disclosures, and structured open-source research workflows.
 
 SPEC-1 is the research engine. Notitia Civica is the publication surface. The site is
-served from this repository by GitHub Pages at https://cls-1000.github.io/notitia-civica/.
+served from this repository by GitHub Pages at https://ominous-22.github.io/notitia-civica-ux/.
 
 ## Mission
 
@@ -32,7 +32,7 @@ See [`methodology/editorial-standard.md`](methodology/editorial-standard.md) for
 
 ## What's published here
 
-- **[Oregon Legislature, Verified — 2025R1](https://cls-1000.github.io/notitia-civica/oregon/2025R1/)** (`oregon/2025R1/`): every measure of the 2025 regular session with its outcome, one card per measure, and the signed evidence chain in `oregon/2025R1/verify/`.
+- **[Oregon Legislature, Verified — 2025R1](https://ominous-22.github.io/notitia-civica-ux/oregon/2025R1/)** (`oregon/2025R1/`): every measure of the 2025 regular session with its outcome, one card per measure, and the signed evidence chain in `oregon/2025R1/verify/`.
 - **Evidence packs** (`evidence/`): signed records behind published findings, such as `evidence/or_veto_pack_2026-10-01/` for the Oregon veto-field report. `evidence/OPERATOR_KEY.md` publishes the signing key. To check a pack with Python 3 and nothing else installed:
 
   ```bash
@@ -58,6 +58,6 @@ SPEC-1 supports source monitoring and signal organization. Editorial responsibil
 
 ## Ownership and rights
 
-Notitia Civica is published by EVASTARARCANA LLC, a commercial entity.
+Notitia Civica — published by Matthew J. Lakamp.
 
-© EVASTARARCANA LLC. All rights reserved. This is not open source. Issues and data corrections are welcome; outside pull requests are not accepted.
+© Matthew J. Lakamp. All rights reserved. This is not open source. Issues and data corrections are welcome; outside pull requests are not accepted.
