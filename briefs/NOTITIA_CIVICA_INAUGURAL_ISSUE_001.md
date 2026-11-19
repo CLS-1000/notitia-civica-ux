@@ -307,5 +307,5 @@ Independent Public-Interest Publication
 Powered by SPEC-1  
 
 **Support open-source intelligence and public signal analysis.**  
-Questions? Issues? [GitHub Issues](https://github.com/ominous-22/notitia-civica/issues)  
-Source code and methodology: [ominous-22/notitia-civica](https://github.com/ominous-22/notitia-civica)  
+Questions? Issues? [GitHub Issues](https://github.com/CLS-1000/notitia-civica-ux/issues)  
+Source code and methodology: [CLS-1000/notitia-civica-ux](https://github.com/CLS-1000/notitia-civica-ux)  
