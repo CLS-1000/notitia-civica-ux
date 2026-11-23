@@ -11,12 +11,12 @@
 <style>
 :root{
   /* Notitia Civica, Civic Intelligence Brief. World State Brief look: pearl paper, broadsheet serif, newspaper columns with thin rules. */
-  --paper:#F7F4EC; --ink:#1C1A17; --muted:#4A453D; --faint:#6E685E; --rule:#1C1A17; --hair:#CFC9BC; --tint:#EFEADF;
-  --law:#2E5E3A; --caution:#8C2A1C; --focus:#1A2D50;
+  --paper:#0E0D0C; --ink:#F4F1EA; --muted:#C9C3B8; --faint:#9C968B; --rule:#F4F1EA; --hair:#3A3732; --tint:#1A1816;
+  --law:#7FC08E; --caution:#F0604A; --red:#E5482F; --focus:#9DB4E0;
   --serif:"Libre Caslon Text","Iowan Old Style","Times New Roman",Georgia,serif;
   --display:"Playfair Display","Libre Caslon Text",Georgia,serif;
   --mono:"Courier Prime","Courier New",Courier,monospace;
-  color-scheme:light;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{font-size:106.25%}
@@ -72,7 +72,7 @@ ol.cards{list-style:none;padding:0;margin:0;column-count:3;column-gap:2.2rem;col
 .card h3{font-family:var(--serif);font-weight:400;font-size:1.06rem;line-height:1.4;margin:0 0 .45rem}
 .card .title{margin:0 0 .45rem;color:var(--muted);text-align:justify;hyphens:auto}
 .tag{display:inline-block;font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;font-size:.92rem;border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:0 .3rem;margin:0 .35rem .4rem 0}
-.tag.law{color:var(--law)}
+.tag.law,.tag.adopted,.tag.passed_legislature{color:var(--law)}
 .tag.vetoed,.tag.unverified,.tag.stopped,.tag.failed{color:var(--caution)}
 .card ul.claims{margin:.35rem 0 .5rem;padding-left:1.1rem}
 .card ul.claims li{margin:.15rem 0;text-align:justify;hyphens:auto}
@@ -99,6 +99,14 @@ pre{font-family:var(--mono);font-size:.78rem;background:var(--tint);border:1px s
 footer{border-top:3px double var(--rule);padding:1.2rem 0 2.6rem;color:var(--muted);font-size:.9rem;text-align:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
+/* Names and titles in red brackets: [NOTITIA CIVICA] [SPEC-1] */
+.mast .name::before,.mast .series::before,header.site h1::before,h2 .t::before,.limits h3::before,.card .kicker b::before,.nm::before{content:"[";color:var(--red);font-weight:400}
+.mast .name::after,.mast .series::after,header.site h1::after,h2 .t::after,.limits h3::after,.card .kicker b::after,.nm::after{content:"]";color:var(--red);font-weight:400}
+.mast .series{color:var(--red)}
+h2::before{border-top-color:var(--red)}
+/* Go is green, stop is red */
+.stat:nth-child(2) b{color:var(--law)}
+.stat:nth-child(3) b,.stat:nth-child(4) b{color:var(--caution)}
 @media (max-width:1000px){ol.cards{column-count:2}}
 @media (max-width:680px){
   ol.cards,.howto ol{column-count:1}
@@ -130,12 +138,12 @@ footer{border-top:3px double var(--rule);padding:1.2rem 0 2.6rem;color:var(--mut
   </div>
 
   <aside class="ballot" aria-labelledby="ballot-h">
-    <h2 id="ballot-h">Will any of this be on your ballot?</h2>
+    <h2 id="ballot-h"><span class="t">Will any of this be on your ballot?</span></h2>
     <p>None of the 56 proposed changes to the Oregon Constitution passed, so none of them will be on your ballot. <a href="#bills" data-filter-topic="ballot">See all 56</a>.</p>
   </aside>
 
   <section id="bills" aria-labelledby="bills-h">
-    <h2 id="bills-h">Find a bill</h2>
+    <h2 id="bills-h"><span class="t">Find a bill</span></h2>
     <form class="controls" role="search" onsubmit="return false">
       <div><label for="q">Search by bill number or words</label>
         <input id="q" type="search" placeholder="e.g. SB 976, vetoed, constitution" autocomplete="off"></div>
@@ -150,7 +158,7 @@ footer{border-top:3px double var(--rule);padding:1.2rem 0 2.6rem;color:var(--mut
   </section>
 
   <section class="howto" id="check" aria-labelledby="check-h">
-    <h2 id="check-h">How to check this yourself</h2>
+    <h2 id="check-h"><span class="t">How to check this yourself</span></h2>
     <p>Every statement on this site was recorded, with the Legislature's own data behind it, before it was published. The whole record is sealed with the publisher's digital signature. If anyone changes, adds, removes or reorders a single line afterward, the check below fails.</p>
     <ol>
       <li><strong>Where the facts come from.</strong> Each bill's official action history, from the Oregon Legislature's public data service (27,488 recorded steps). The data file's fingerprint is <code>5f9ca6de12888f9b…</code>.</li>
@@ -168,7 +176,7 @@ python3 verify.py chain --pubkey c7dbbf86b2e014fad70190276f4e20969743d2fa2bc7c13
   </section>
 </main>
 <footer><div class="wrap">
-  Built 2026-10-20T09:33:51Z with SPEC-1, proc_track and Gatepost. Official bill pages: <a href="https://olis.oregonlegislature.gov/">olis.oregonlegislature.gov</a>.
+  Built 2026-10-20T09:33:51Z with <span class="nm">SPEC-1</span>, <span class="nm">proc_track</span> and <span class="nm">Gatepost</span>. Official bill pages: <a href="https://olis.oregonlegislature.gov/">olis.oregonlegislature.gov</a>.
 </div></footer>
 
 <script>
