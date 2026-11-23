@@ -12,7 +12,7 @@
 :root{
   /* Notitia Civica, Civic Intelligence Brief. World State Brief look: pearl paper, broadsheet serif, newspaper columns with thin rules. */
   --paper:#0E0D0C; --ink:#F4F1EA; --muted:#C9C3B8; --faint:#9C968B; --rule:#F4F1EA; --hair:#3A3732; --tint:#1A1816;
-  --law:#7FC08E; --caution:#F0604A; --red:#E5482F; --focus:#9DB4E0;
+  --law:#7FC08E; --caution:#F0604A; --focus:#9DB4E0;
   --serif:"Libre Caslon Text","Iowan Old Style","Times New Roman",Georgia,serif;
   --display:"Playfair Display","Libre Caslon Text",Georgia,serif;
   --mono:"Courier Prime","Courier New",Courier,monospace;
@@ -99,11 +99,9 @@ pre{font-family:var(--mono);font-size:.78rem;background:var(--tint);border:1px s
 footer{border-top:3px double var(--rule);padding:1.2rem 0 2.6rem;color:var(--muted);font-size:.9rem;text-align:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* Names and titles in red brackets: [NOTITIA CIVICA] [SPEC-1] */
-.mast .name::before,.mast .series::before,header.site h1::before,h2 .t::before,.limits h3::before,.card .kicker b::before,.nm::before{content:"[";color:var(--red);font-weight:400}
-.mast .name::after,.mast .series::after,header.site h1::after,h2 .t::after,.limits h3::after,.card .kicker b::after,.nm::after{content:"]";color:var(--red);font-weight:400}
-.mast .series{color:var(--red)}
-h2::before{border-top-color:var(--red)}
+/* Names and titles in brackets: [NOTITIA CIVICA] [SPEC-1]. Red is only for what failed or did not pass. */
+.mast .name::before,.mast .series::before,header.site h1::before,h2 .t::before,.limits h3::before,.card .kicker b::before,.nm::before{content:"[";font-weight:400}
+.mast .name::after,.mast .series::after,header.site h1::after,h2 .t::after,.limits h3::after,.card .kicker b::after,.nm::after{content:"]";font-weight:400}
 /* Go is green, stop is red */
 .stat:nth-child(2) b{color:var(--law)}
 .stat:nth-child(3) b,.stat:nth-child(4) b{color:var(--caution)}
