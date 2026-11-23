@@ -99,9 +99,9 @@ pre{font-family:var(--mono);font-size:.78rem;background:var(--tint);border:1px s
 footer{border-top:3px double var(--rule);padding:1.2rem 0 2.6rem;color:var(--muted);font-size:.9rem;text-align:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* Names and titles in brackets: [NOTITIA CIVICA] [SPEC-1]. Red is only for what failed or did not pass. */
-.mast .name::before,.mast .series::before,header.site h1::before,h2 .t::before,.limits h3::before,.card .kicker b::before,.nm::before{content:"[";font-weight:400}
-.mast .name::after,.mast .series::after,header.site h1::after,h2 .t::after,.limits h3::after,.card .kicker b::after,.nm::after{content:"]";font-weight:400}
+/* Names in brackets: [SPEC-1], [HB 2005]. Red is only for what failed or did not pass. */
+.card .kicker b::before,.nm::before{content:"[";font-weight:400}
+.card .kicker b::after,.nm::after{content:"]";font-weight:400}
 /* Go is green, stop is red */
 .stat:nth-child(2) b{color:var(--law)}
 .stat:nth-child(3) b,.stat:nth-child(4) b{color:var(--caution)}
