@@ -11,12 +11,12 @@
 <style>
 :root{
   /* Notitia Civica, Civic Intelligence Brief. World State Brief look: pearl paper, broadsheet serif, newspaper columns with thin rules. */
-  --paper:#0E0D0C; --ink:#F4F1EA; --muted:#C9C3B8; --faint:#9C968B; --rule:#F4F1EA; --hair:#3A3732; --tint:#1A1816;
-  --law:#7FC08E; --caution:#F0604A; --focus:#9DB4E0;
+  --paper:#FFFFFF; --ink:#111111; --muted:#3A3A3A; --faint:#5E5E5E; --rule:#111111; --hair:#D6D6D6; --tint:#F4F4F4;
+  --law:#2E5E3A; --caution:#111111; --focus:#1A2D50;
   --serif:"Libre Caslon Text","Iowan Old Style","Times New Roman",Georgia,serif;
   --display:"Playfair Display","Libre Caslon Text",Georgia,serif;
   --mono:"Courier Prime","Courier New",Courier,monospace;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html{font-size:106.25%}
@@ -99,7 +99,7 @@ pre{font-family:var(--mono);font-size:.78rem;background:var(--tint);border:1px s
 footer{border-top:3px double var(--rule);padding:1.2rem 0 2.6rem;color:var(--muted);font-size:.9rem;text-align:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* Names in brackets: [SPEC-1], [HB 2005]. Red is only for what failed or did not pass. */
+/* Names in brackets: [SPEC-1], [HB 2005]. White and black, no red. */
 .card .kicker b::before,.nm::before{content:"[";font-weight:400}
 .card .kicker b::after,.nm::after{content:"]";font-weight:400}
 /* Go is green, stop is red */
