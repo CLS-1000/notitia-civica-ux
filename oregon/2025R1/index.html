@@ -6,246 +6,109 @@
 <title>Oregon Legislature, Verified</title>
 <meta name="description" content="Every bill in Oregon's 2025R1 session, in plain language, with a record anyone can check.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700;900&family=Courier+Prime:wght@400;700&display=swap">
 <style>
 :root{
-  /* Notitia Civica, Civic Intelligence Brief. Layout: one reading column on warm paper, masthead rule, ledger-style bill list. */
-  --bg:#F7F4EE; --fg:#1F1C16; --muted:#3D3830; --faint:#6B655C; --line:#D2CDC3; --soft:#EDE8DE;
-  --pass:#266662; --caution:#B83820; --accent:#266662; --focus:#1A2D50;
-  --serif:"Libre Caslon Text","Iowan Old Style",Georgia,serif;
-  --sans:"Inter",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  /* Notitia Civica, Civic Intelligence Brief. World State Brief look: pearl paper, broadsheet serif, newspaper columns with thin rules. */
+  --paper:#F7F4EC; --ink:#1C1A17; --muted:#4A453D; --faint:#6E685E; --rule:#1C1A17; --hair:#CFC9BC; --tint:#EFEADF;
+  --law:#2E5E3A; --caution:#8C2A1C; --focus:#1A2D50;
+  --serif:"Libre Caslon Text","Iowan Old Style","Times New Roman",Georgia,serif;
+  --display:"Playfair Display","Libre Caslon Text",Georgia,serif;
   --mono:"Courier Prime","Courier New",Courier,monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#1A1813; --fg:#F2EEE6; --muted:#D6D0C4; --faint:#A8A196; --line:#3D3830; --soft:#24211B;
-    --pass:#6FB5AE; --caution:#E58A6E; --accent:#6FB5AE; --focus:#9DB4E0; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#1A1813; --fg:#F2EEE6; --muted:#D6D0C4; --faint:#A8A196; --line:#3D3830; --soft:#24211B;
-  --pass:#6FB5AE; --caution:#E58A6E; --accent:#6FB5AE; --focus:#9DB4E0; color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
-html{font-size:112.5%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6}
-a{color:inherit;text-underline-offset:3px}
+html{font-size:106.25%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.skip{position:absolute;left:-999px;top:0;background:var(--fg);color:var(--bg);padding:.6rem 1rem;z-index:9}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.6rem 1rem;z-index:9}
 .skip:focus{left:1rem}
-.wrap{max-width:62rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-header.site{border-bottom:3px double var(--fg);padding-block:1.4rem 1.3rem}
-.mast{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;border-bottom:1px solid var(--fg);padding-bottom:.5rem;margin-bottom:1.1rem}
-.mast .name{font-family:var(--serif);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;margin:0}
-.mast .series{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0}
-.kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0}
-h1,h2,h3{text-wrap:balance}
-h1,h2,h3{font-family:var(--serif);font-weight:700}
-h1{font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.08;margin:.2rem 0 .7rem;letter-spacing:-.01em}
-.lede{font-size:1.08rem;max-width:44rem;margin:0}
-.demo{border:2px solid var(--caution);padding:.8rem 1rem;margin:1.2rem 0 0}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:0;border:1px solid var(--line);margin:1.6rem 0}
-.stat{padding:1rem;border-right:1px solid var(--line)}
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-weight:700;text-wrap:balance}
+
+/* Masthead: centered nameplate, thin double rule */
+header.site{padding-block:1.6rem 0;text-align:center}
+.mast{display:block;border-bottom:3px double var(--rule);padding-bottom:.7rem;margin-bottom:1.3rem}
+.mast .name{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(1.6rem,4.6vw,2.7rem);line-height:1.1;margin:0}
+.mast .series{font-family:var(--serif);font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted);margin:.35rem 0 0}
+header.site h1{font-family:var(--display);font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.05;margin:.1rem auto .6rem;letter-spacing:-.005em;max-width:20ch}
+.lede{font-style:italic;font-size:1.12rem;max-width:42rem;margin:0 auto;color:var(--muted)}
+header.site .wrap::after{content:"";display:block;border-bottom:1px solid var(--rule);margin-top:1.3rem}
+
+/* Session totals: a ruled band of figures */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:3px double var(--rule);margin:1.4rem 0 1.6rem}
+.stat{padding:.9rem .6rem;text-align:center;border-right:1px solid var(--hair)}
 .stat:last-child{border-right:0}
-.stat b{display:block;font-family:var(--serif);font-size:2.2rem;line-height:1.1;font-variant-numeric:tabular-nums}
-.stat span{color:var(--muted);font-size:.92rem}
-.ballot{background:var(--soft);border-top:3px solid var(--accent);padding:1.1rem 1.2rem;margin:0 0 2rem}
-.ballot h2{margin:0 0 .3rem;font-size:1.3rem}
-.ballot p{margin:0}
-section{margin:2.2rem 0}
-h2{font-size:1.45rem;margin:0 0 .8rem}
-.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:.8rem;align-items:end}
-@media (max-width:640px){.controls{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}}
-label{display:block;font-weight:600;font-size:.92rem;margin-bottom:.25rem}
-input,select,button{font:inherit;color:var(--fg);background:var(--bg);border:2px solid var(--fg);border-radius:0;padding:.55rem .7rem;width:100%}
-button{cursor:pointer;font-weight:600}
-button.more{width:auto;margin:1.2rem 0;padding:.6rem 1.3rem}
-.count{margin:.9rem 0 .4rem;color:var(--muted)}
-ol.cards{list-style:none;padding:0;margin:0}
-.card{border-top:1px solid var(--line);padding:1.2rem 0}
-.card h3{font-size:1.15rem;margin:0 0 .15rem;line-height:1.35}
-.card .title{margin:0 0 .4rem;color:var(--muted)}
-.tag{display:inline-block;font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--fg);padding:.05rem .45rem;margin:0 .35rem .35rem 0}
-.tag.law{border-color:var(--pass);color:var(--pass)}
-.tag.vetoed,.tag.unverified{border-color:var(--caution);color:var(--caution)}
-.card ul.claims{margin:.4rem 0 .5rem;padding-left:1.2rem}
-.card ul.claims li{margin:.15rem 0}
+.stat b{display:block;font-family:var(--display);font-size:2.4rem;line-height:1.05;font-variant-numeric:lining-nums tabular-nums}
+.stat span{font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;color:var(--muted);font-size:.95rem}
+
+/* Section heads: small caps with a short rule above */
+h2{font-family:var(--serif);font-size:1.02rem;text-transform:uppercase;letter-spacing:.16em;margin:0 0 .9rem}
+h2::before{content:"";display:block;width:3rem;border-top:2px solid var(--rule);margin-bottom:.45rem}
+section{margin:2.4rem 0}
+
+/* Ballot note: a boxed notice like a front-page panel */
+.ballot{border:1px solid var(--rule);outline:1px solid var(--rule);outline-offset:3px;padding:1rem 1.2rem;margin:0 0 2.2rem;background:var(--tint)}
+.ballot h2{margin:0 0 .35rem}
+.ballot p{margin:0;font-size:1.05rem}
+
+/* Search controls */
+.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:.9rem;align-items:end;border-bottom:1px solid var(--hair);padding-bottom:1rem}
+label{display:block;font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;font-size:.98rem;margin-bottom:.25rem;color:var(--muted)}
+input,select,button{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:0;padding:.5rem .65rem;width:100%}
+button{cursor:pointer;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em}
+button:hover{background:var(--ink);color:var(--paper)}
+button.more{display:block;width:auto;margin:1.6rem auto;padding:.55rem 1.6rem}
+.count{margin:.9rem 0 1rem;color:var(--faint);font-style:italic;text-align:center}
+
+/* Bill cards: newspaper columns with thin vertical rules */
+ol.cards{list-style:none;padding:0;margin:0;column-count:3;column-gap:2.2rem;column-rule:1px solid var(--hair)}
+.card{break-inside:avoid;-webkit-column-break-inside:avoid;padding:0 0 1.1rem;margin:0 0 1.1rem;border-bottom:1px solid var(--hair);display:inline-block;width:100%}
+.card h3{font-family:var(--display);font-size:1.22rem;line-height:1.2;margin:0 0 .25rem}
+.card .title{margin:0 0 .45rem;color:var(--muted);font-style:italic;text-align:justify;hyphens:auto}
+.tag{display:inline-block;font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;font-size:.92rem;border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:0 .3rem;margin:0 .35rem .4rem 0}
+.tag.law{color:var(--law)}
+.tag.vetoed,.tag.unverified{color:var(--caution)}
+.card ul.claims{margin:.35rem 0 .5rem;padding-left:1.1rem}
+.card ul.claims li{margin:.15rem 0;text-align:justify;hyphens:auto}
+.card p{margin:.35rem 0;font-size:.95rem}
 details{margin:.3rem 0}
-summary{cursor:pointer;font-weight:600}
-ol.tl{margin:.5rem 0 .2rem;padding-left:1.4rem}
+summary{cursor:pointer;font-variant:small-caps;text-transform:lowercase;letter-spacing:.06em}
+ol.tl{margin:.4rem 0 .2rem;padding-left:1.3rem;font-size:.92rem}
 ol.tl li{margin:.1rem 0}
-ol.tl time{font-variant-numeric:tabular-nums;color:var(--muted);margin-right:.4rem}
-.rec{font-family:var(--mono);font-size:.8rem;color:var(--faint);margin:.4rem 0 0;overflow-wrap:anywhere}
-.ok{color:var(--pass);font-weight:600}
-.no{color:var(--caution);font-weight:600}
-.howto ol{padding-left:1.3rem}
-.howto li{margin:.4rem 0}
+ol.tl time{font-variant-numeric:tabular-nums;color:var(--faint);margin-right:.4rem}
+.rec{font-family:var(--mono);font-size:.74rem;color:var(--faint);margin:.4rem 0 0;overflow-wrap:anywhere}
+.ok{color:var(--law);font-weight:700}
+.no{color:var(--caution);font-weight:700}
+
+/* How to check: two columns of body text, never split a step */
+.howto>p{max-width:48rem;text-align:justify;hyphens:auto;margin:0 0 1rem}
+.howto ol{column-count:2;column-gap:2.2rem;column-rule:1px solid var(--hair);padding-left:1.3rem;margin:0 0 1.4rem}
+.howto li{margin:0 0 .8rem;break-inside:avoid;text-align:justify;hyphens:auto}
 code{font-family:var(--mono);font-size:.85em;overflow-wrap:anywhere;word-break:break-all}
-pre{font-family:var(--mono);font-size:.82rem;background:var(--soft);border:1px solid var(--line);padding:.8rem;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
-.limits{border:1px solid var(--line);padding:1rem 1.2rem}
-footer{border-top:1px solid var(--line);padding:1.4rem 0 2.4rem;color:var(--muted);font-size:.9rem}
+pre{font-family:var(--mono);font-size:.78rem;background:var(--tint);border:1px solid var(--hair);padding:.7rem;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;text-align:left}
+.limits{border-top:3px double var(--rule);border-bottom:1px solid var(--rule);padding:.9rem 0}
+.limits h3{font-family:var(--display);font-size:1.2rem;margin:0 0 .4rem}
+.limits p{margin:0;text-align:justify;hyphens:auto}
+
+footer{border-top:3px double var(--rule);padding:1.2rem 0 2.6rem;color:var(--muted);font-size:.9rem;text-align:center;font-style:italic}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (max-width:1000px){ol.cards{column-count:2}}
+@media (max-width:680px){
+  ol.cards,.howto ol{column-count:1}
+  .card .title,.card ul.claims li,.howto li,.limits p{text-align:left}
+  .controls{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+}
+@media print{button.more,.controls,.skip{display:none}ol.cards{column-count:3}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
-
-    /* SCDS-26 Hard Reset for Light/Tan Containers */
-    div, section, article, header, aside, main, fieldset, form,
-    .box, .notice, .alert, .summary, .stats, .panel, .container, .overview {
-      background-color: var(--scds-bg-surface) !important;
-      border-color: var(--scds-border-hairline) !important;
-      color: var(--scds-text-primary) !important;
-    }
-
-    /* Elevate highlight and notice boxes with an amber accent */
-    .notice, .alert, .summary, .overview, [class*="notice"], [class*="alert"] {
-      background-color: var(--scds-bg-surface-elev) !important;
-      border: 1px solid var(--scds-border-subtle) !important;
-      border-left: 3px solid var(--scds-amber-core) !important;
-    }
-
-    /* Keep inputs on deep surface */
-    input, select, textarea {
-      background-color: var(--scds-bg-surface-elev) !important;
-      color: var(--scds-text-primary) !important;
-      border: 1px solid var(--scds-border-subtle) !important;
-    }
-
-    </style>
-
-    <!-- SCDS-26 Design System Stylesheet -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --scds-bg-abyss: #06090F;
-        --scds-bg-surface: #0B111E;
-        --scds-bg-surface-elev: #111927;
-        --scds-bg-surface-sub: #172237;
-        --scds-border-hairline: rgba(148, 163, 184, 0.12);
-        --scds-border-subtle: rgba(245, 158, 11, 0.25);
-        --scds-border-prominent: rgba(245, 158, 11, 0.60);
-        --scds-amber-bright: #FFB020;
-        --scds-amber-core: #F59E0B;
-        --scds-orange-deep: #D97706;
-        --scds-text-primary: #F8FAFC;
-        --scds-text-secondary: #94A3B8;
-        --scds-text-muted: #64748B;
-        --scds-status-law: #10B981;
-        --scds-status-law-bg: rgba(16, 185, 129, 0.12);
-        --scds-status-stopped: #64748B;
-        --scds-status-stopped-bg: rgba(100, 116, 139, 0.15);
-        --scds-status-veto: #EF4444;
-        --scds-status-veto-bg: rgba(239, 68, 68, 0.14);
-      }
-
-      body {
-        background-color: var(--scds-bg-abyss) !important;
-        color: var(--scds-text-primary) !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-        margin: 0;
-        padding: 0;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      /* Banner & Branding */
-      .brand-banner-container {
-        text-align: center;
-        padding: 32px 16px 12px 16px;
-        background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
-      }
-      .brand-banner-container img {
-        max-width: 460px;
-        width: 85%;
-        height: auto;
-        filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6));
-      }
-
-      /* Header & Metrics */
-      header, .header-panel {
-        background-color: var(--scds-bg-surface) !important;
-        border-bottom: 1px solid var(--scds-border-hairline) !important;
-      }
-      h1, h2, h3, .heading-grotesk {
-        font-family: 'Space Grotesk', sans-serif !important;
-        color: var(--scds-text-primary) !important;
-      }
-
-      /* Search & Filtering Bar */
-      input[type="text"], input[type="search"], .search-box {
-        background-color: var(--scds-bg-surface-elev) !important;
-        color: var(--scds-text-primary) !important;
-        border: 1px solid var(--scds-border-subtle) !important;
-        border-radius: 4px !important;
-        padding: 10px 14px !important;
-        font-family: 'IBM Plex Mono', monospace !important;
-      }
-      input[type="text"]:focus, input[type="search"]:focus {
-        border-color: var(--scds-amber-bright) !important;
-        box-shadow: 0 0 10px rgba(245, 158, 11, 0.25) !important;
-        outline: none !important;
-      }
-
-      /* Measure Cards */
-      .card, .measure-card, [class*="card"] {
-        background: var(--scds-bg-surface) !important;
-        border: 1px solid var(--scds-border-hairline) !important;
-        border-radius: 6px !important;
-        box-shadow: 0 4px 14px rgba(6, 9, 15, 0.8) !important;
-        transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
-      }
-      .card:hover, .measure-card:hover {
-        border-color: var(--scds-border-subtle) !important;
-        box-shadow: 0 6px 20px rgba(6, 9, 15, 0.9), 0 0 12px rgba(245, 158, 11, 0.12) !important;
-      }
-
-      /* Measure Identification & Badges */
-      .measure-id, [class*="prefix"] {
-        font-family: 'IBM Plex Mono', monospace !important;
-        font-weight: 700 !important;
-        color: var(--scds-amber-bright) !important;
-      }
-      .status-badge, .badge, [class*="badge"] {
-        font-family: 'IBM Plex Mono', monospace !important;
-        font-size: 10px !important;
-        font-weight: 600 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.05em !important;
-        border-radius: 3px !important;
-        padding: 3px 8px !important;
-      }
-
-      /* Status Pill Colors */
-      .badge-law, [data-status="law"], [class*="status-law"] {
-        background: var(--scds-status-law-bg) !important;
-        color: var(--scds-status-law) !important;
-        border: 1px solid rgba(16, 185, 129, 0.3) !important;
-      }
-      .badge-veto, [data-status="veto"], [class*="status-veto"] {
-        background: var(--scds-status-veto-bg) !important;
-        color: var(--scds-status-veto) !important;
-        border: 1px solid rgba(239, 68, 68, 0.35) !important;
-      }
-      .badge-stopped, [data-status="stopped"], [class*="status-stopped"] {
-        background: var(--scds-status-stopped-bg) !important;
-        color: var(--scds-status-stopped) !important;
-        border: 1px solid rgba(100, 116, 139, 0.3) !important;
-      }
-
-      /* Telemetry Links & Footers */
-      a {
-        color: var(--scds-amber-core) !important;
-        text-decoration: none !important;
-      }
-      a:hover {
-        color: var(--scds-amber-bright) !important;
-        text-decoration: underline !important;
-      }
-      .seal-hash, pre, code {
-        font-family: 'IBM Plex Mono', monospace !important;
-        color: var(--scds-text-secondary) !important;
-      }
-    </style>
-
+</style>
 </head>
 <body>
 <a class="skip" href="#bills">Skip to the list of bills</a>
