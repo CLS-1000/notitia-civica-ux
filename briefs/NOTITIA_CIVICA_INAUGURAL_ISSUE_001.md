@@ -270,7 +270,7 @@ This is harder than publishing unvetted rumor or unexamined consensus. It is als
 
 ## Notitia Civica — Publication Policy
 
-**Operated by:** EVASTARARCANA LLC, Portland, Oregon
+**Published from:** Portland, Oregon
 
 **Source Base:** Public records, open-source reporting, official statements, congressional filings, regulatory documents, published analysis, and structured data feeds.
 
